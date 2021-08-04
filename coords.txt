@@ -1,0 +1,23 @@
+GO PRAY
+175 90 60 125 middle pause open
+175 90 95 60 before bottom open
+175 90 100 55 bottom open
+105 90 100 55 bottom closed
+105 90 60 125 middle pause closed
+105 58 80 145 before let go position closed
+105 43 80 145 let go closed
+175 43 80 145 let go open
+
+new
+180 75 40 105 70 middle open pause
+180 75 80 65 70 above gate open
+180 75 105 30 70 bottom open mouth closed gate
+180 75 105 30 145 bottom open mouth open gate
+70 75 105 30 145 bottom closed mouth open gate
+70 75 80 65 145 above gate closed
+70 75 40 105 70 middle closed pause
+70 45 70 145 70 near balcony
+70 38 100 120 70 right above balcony closed
+180 38 100 120 70 right above balcony open
+180 45 70 145 70 near balcony open
+
