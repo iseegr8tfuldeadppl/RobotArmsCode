@@ -96,11 +96,11 @@ void go_to_coordinates(int m, int b, int s, int t, int g, int delayy){
   int longest_difference = mouth_difference;
   if(bottom_difference>longest_difference)
     longest_difference = bottom_difference;
-  else if(spine_difference>longest_difference)
+  if(spine_difference>longest_difference)
     longest_difference = spine_difference;
-  else if(tilt_difference>longest_difference)
+  if(tilt_difference>longest_difference)
     longest_difference = tilt_difference;
-  else if(gate_difference>longest_difference)
+  if(gate_difference>longest_difference)
     longest_difference = gate_difference;
 
 
@@ -255,7 +255,3 @@ void loop() {
       }
   }
 }
-
-
-
-
