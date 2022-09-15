@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Robot Arm Car</title>
+</head>
+<body>
+    <div class="page">
+        <div class="slidecontainer">
+            <header>
+                <h1>Arm - MustShop Arduino</h1>
+            </header>
+            <input id="bottomSlider" oninput="bottomSliderUpdated()" type="range" min="0" max="179" value="90" class="slider">
+            <input id="spineSlider" oninput="bottomSliderUpdated()" type="range" min="0" max="179" value="90" class="slider">
+            <input id="tiltSlider" oninput="bottomSliderUpdated()" type="range" min="0" max="179" value="90" class="slider">
+            <input id="mouthSlider" oninput="bottomSliderUpdated()" type="range" min="0" max="179" value="90" class="slider">
+            <div class="horizontalList">
+                <button id="forth" class="button-5">FORTH</button>
+            </div>
+            <div class="horizontalList">
+                <button id="left" class="button-5" role="button">LEFT</button>
+                <button id="right" class="button-5" role="button">RIGHT</button>
+            </div>
+            <div class="horizontalList">
+                <button id="back" class="button-5" role="button">BACK</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="script.js"></script>
+</html>

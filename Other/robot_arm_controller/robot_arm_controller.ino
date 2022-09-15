@@ -9,8 +9,8 @@ int tilt_least = 40, tilt_most = 180;
 int gate_least = 0, gate_most = 180;
 */
 
-int gate_least = 70;
-int gate_most = 145;
+int gate_least = 0;
+int gate_most = 180;
 int mouth_least = 0;
 int mouth_most = 180;
 int bottom_least = 0;
@@ -30,10 +30,10 @@ int step = 25;
 void setup() { 
   // put your setup code here, to run once:
   mouth.attach(3);
-  bottom.attach(6);
-  spine.attach(5);
+  bottom.attach(5);
+  spine.attach(6);
   tilt.attach(9);
-  gate.attach(11);
+  gate.attach(10);
 
   mouth.write(mouth_least);
   bottom.write(bottom_least);
