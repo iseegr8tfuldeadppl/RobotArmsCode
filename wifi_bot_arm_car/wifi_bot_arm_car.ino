@@ -5,10 +5,10 @@
 
 
 //#define ENA 14
-#define IN1 15
-#define IN2 13
-#define IN3 12
-#define IN4 14
+#define IN1 D5
+#define IN2 D6
+#define IN3 D7
+#define IN4 D8
 //#define ENB 16
 
 WiFiClient client;
@@ -165,16 +165,16 @@ void handleMotion(){
     tilt.write(tilt_angle);
 
     */
-    mouth.write(temp_mouth);
-    bottom.write(temp_bottom);
-    spine.write(temp_spine);
-    tilt.write(temp_tilt);
+    mouth.writeMicroseconds(map(temp_mouth, 0, 180, 500, 2500));
+    bottom.writeMicroseconds(map(temp_bottom, 0, 180, 500, 2500));
+    spine.writeMicroseconds(map(temp_spine, 0, 180, 500, 2500));
+    tilt.writeMicroseconds(map(temp_tilt, 0, 180, 500, 2500));
 
     if(angles[5]=="1"){ // forth
-      digitalWrite(IN1, LOW);
-      digitalWrite(IN2, HIGH);
-      digitalWrite(IN3, LOW);
-      digitalWrite(IN4, HIGH);
+      digitalWrite(IN1, HIGH);
+      digitalWrite(IN2, LOW);
+      digitalWrite(IN3, HIGH);
+      digitalWrite(IN4, LOW);
     } else if(angles[6]=="1"){ // left
       digitalWrite(IN1, HIGH);
       digitalWrite(IN2, LOW);
@@ -186,10 +186,10 @@ void handleMotion(){
       digitalWrite(IN3, HIGH);
       digitalWrite(IN4, LOW);
     } else if(angles[8]=="1"){ // back
-      digitalWrite(IN1, HIGH);
-      digitalWrite(IN2, LOW);
-      digitalWrite(IN3, HIGH);
-      digitalWrite(IN4, LOW);
+      digitalWrite(IN1, LOW);
+      digitalWrite(IN2, HIGH);
+      digitalWrite(IN3, LOW);
+      digitalWrite(IN4, HIGH);
     } else {
       digitalWrite(IN1, LOW);
       digitalWrite(IN2, LOW);
@@ -230,16 +230,16 @@ void setup() {
   digitalWrite(LED_BUILTIN, HIGH);
   
   // put your setup code here, to run once:
-  mouth.attach(2); // GPIO0 D3
-  bottom.attach(5); // GPIO2 D4
-  spine.attach(0); // GPIO14 D5
-  tilt.attach(4); // GPIO12 D6
-  //gate.attach(D7); // GPIO13 D7
+  mouth.attach(D3); // 
+  bottom.attach(D4); // 
+  spine.attach(D1); //
+  tilt.attach(D2); //
+  //gate.attach(D7); //
 
   mouth.write(90);
-  bottom.write(90);
-  spine.write(90);
-  tilt.write(90);
+  bottom.write(104);
+  spine.write(15);
+  tilt.write(148);
   //gate.write(gate_most);
 
   boolean result = WiFi.softAP(ssid, password);
