@@ -31,12 +31,12 @@ int spine_most = 180;
 int tilt_least = 0;
 int tilt_most = 180;
 
-float bottom_angle= 90;
-float spine_angle=90;
-float tilt_angle=90;
-float mouth_angle= 90;
-float gate_angle=90;
-int stepp = 25;
+float bottom_angle= 1500;
+float spine_angle=1500;
+float tilt_angle=1500;
+float mouth_angle= 1500;
+float gate_angle=1500;
+int stepp = 250;
 
 
 // serial communication variables
@@ -59,11 +59,16 @@ float mouth_stepp, bottom_stepp, spine_stepp, tilt_stepp, gate_stepp;
 
 void go_to_coordinates(int m, int b, int s, int t, int g, int Speed){
 
-  mouth_stepp = (m - mouth_angle) / Speed;
-  bottom_stepp = (b - bottom_angle) / Speed;
-  spine_stepp = (s - spine_angle) / Speed;
-  tilt_stepp = (t - tilt_angle) / Speed;
-  gate_stepp = (g - gate_angle) / Speed;
+  float now_m = ((float)m)*(2500-500)/180 + 500;
+  float now_b = ((float)b)*(2500-500)/180 + 500;
+  float now_s = ((float)s)*(2500-500)/180 + 500; 
+  float now_t = ((float)t)*(2500-500)/180 + 500;
+  float now_g = ((float)g)*(2500-500)/180 + 500;
+  /*mouth_stepp = (now_m - mouth_angle) / Speed;
+  bottom_stepp = (now_b - bottom_angle) / Speed;
+  spine_stepp = (now_s - spine_angle) / Speed;
+  tilt_stepp = (now_t - tilt_angle) / Speed;
+  gate_stepp = (now_g - gate_angle) / Speed;
 
   //long before = millis();
   for(int i= 0; i < Speed; i++){
@@ -79,14 +84,14 @@ void go_to_coordinates(int m, int b, int s, int t, int g, int Speed){
     gate_angle += gate_stepp;
     gate.write(gate_angle);
     //delay(delayy);
-  }
+  }*/
   //Serial.println("after " + String(millis()-before));
 
-  mouth_angle = m;
-  spine_angle = s;
-  tilt_angle = t;
-  bottom_angle = b;
-  gate_angle = g;
+  mouth_angle = now_m;
+  spine_angle = now_s;
+  tilt_angle = now_t;
+  bottom_angle = now_b;
+  gate_angle = now_g;
   
   mouth.write(mouth_angle);
   bottom.write(bottom_angle);
@@ -155,11 +160,11 @@ void setup() {
   digitalWrite(LED_BUILTIN, HIGH);
   
   // put your setup code here, to run once:
-  mouth.attach(D3); // GPIO0 D3
-  bottom.attach(D4); // GPIO2 D4
-  spine.attach(D5); // GPIO14 D5
-  tilt.attach(D6); // GPIO12 D6
-  gate.attach(D7); // GPIO13 D7
+  mouth.attach(D1); // GPIO0 D3
+  bottom.attach(D2); // GPIO2 D4
+  spine.attach(D3); // GPIO14 D5
+  tilt.attach(D4); // GPIO12 D6
+  gate.attach(D5); // GPIO13 D7
 
   //mouth.write(mouth_most);
   //bottom.write(bottom_most);
